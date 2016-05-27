@@ -6,5 +6,6 @@ import (
 )
 
 func init() {
+    beego.Router("*.md",   &controllers.MarkdownController{})
     beego.Router("/", &controllers.MainController{})
 }

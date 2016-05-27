@@ -1,0 +1,12 @@
+footer{
+}
+footer>div{
+    width:98%;
+    height:40px;
+    text-align: center;
+}
+footer>div{
+     line-height: 20px;
+    font-size: 0.8rem;
+    color: darkgray;
+}

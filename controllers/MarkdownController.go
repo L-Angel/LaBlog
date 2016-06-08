@@ -3,13 +3,12 @@ package controllers
 import (
 	"io/ioutil"
 	"os"
-
 	"github.com/astaxie/beego"
 	"github.com/slene/blackfriday"
 )
 
 type MarkdownController struct {
-	beego.Controller
+	baseController
 }
 
 func (c *MarkdownController) Get() {
@@ -44,13 +43,14 @@ func getFile(path string) ([]byte, error) {
 
 func Md2html(raw []byte) string {
 	htmlFlags := 0
-	//htmlFlags |= blackfriday.HTML_USE_XHTML
+	htmlFlags |= blackfriday.HTML_USE_XHTML
 	htmlFlags |= blackfriday.HTML_USE_SMARTYPANTS
 	htmlFlags |= blackfriday.HTML_SMARTYPANTS_FRACTIONS
 	htmlFlags |= blackfriday.HTML_SMARTYPANTS_LATEX_DASHES
 	htmlFlags |= blackfriday.HTML_GITHUB_BLOCKCODE
 	htmlFlags |= blackfriday.HTML_OMIT_CONTENTS
-	//htmlFlags |= blackfriday.HTML_COMPLETE_PAGE
+	htmlFlags |= blackfriday.HTML_COMPLETE_PAGE
+	htmlFlags |= blackfriday.HTML_SKIP_SCRIPT
 	renderer := blackfriday.HtmlRenderer(htmlFlags, "", "")
 
 	// set up the parser

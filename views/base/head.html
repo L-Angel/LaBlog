@@ -2,14 +2,18 @@
 <meta charset="utf-8">
 <title>L-Angel Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="_xsrf" content="{{.xsrf_token}}" />
 {{template "meta" .}}
-<link href="static/img/favicon.ico" rel="icon" type="image/x-icon" />
+<link href="/static/img/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="/static/css/left-nav.css" rel="stylesheet" type="text/css">
 <link href="/static/css/common.css" rel="stylesheet" type="text/css">
 <link href="/static/css/footer.css" rel="stylesheet" type="text/css">
 <script src="/static/js/jquery-2.2.4.min.js" language="JavaScript"></script>
+<script src="/static/js/common/jquery.session.js" language="JavaScript"></script>
+<script src="/static/js/common/jquery.cookie.js" language="JavaScript"></script>
+<script src="/static/js/common/base64_decode.js"></script>
 <script src="/static/js/left-nav.js" language="JavaScript"></script>
 <script src="/static/js/common.js" language="JavaScript"></script>
-<script src="/static/js/login.js" language="JavaScript"></script>
+<script src="/static/admin/js/login.js" language="JavaScript"></script>
 <script src="/static/js/footer.js" language="JavaScript"></script>
 {{template "head" .}}

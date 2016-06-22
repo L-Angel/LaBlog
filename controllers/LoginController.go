@@ -5,5 +5,5 @@ type LoginController struct  {
 }
 
 func (this *LoginController) Get(){
-	this.TplName="Login.html"
+	this.TplName="admin/Login.html"
 }

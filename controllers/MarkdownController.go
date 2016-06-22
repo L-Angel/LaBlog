@@ -12,15 +12,15 @@ type MarkdownController struct {
 }
 
 func (c *MarkdownController) Get() {
-	c.Data["Website"] = "www.wefun.org"
-	c.Data["Email"] = "Dean.Wefun@gmail.com"
-	c.Data["IsMarkdown"] = true
-	c.TplName = "Markdown.tpl"
+	//c.Data["Website"] = "www.wefun.org"
+	//c.Data["Email"] = "Dean.Wefun@gmail.com"
+	//c.Data["IsMarkdown"] = true
+	c.TplName = "Markdown.html"
 
 	link := c.Ctx.Request.URL.Path
 	beego.Info(link)
 	// beego.Info(c.Ctx.Request.URL.Path)
-	str, err := getFile(link)
+	str, err := getArticleFile(link)
 	if err != nil {
 		c.Abort("404")
 	}
@@ -30,8 +30,8 @@ func (c *MarkdownController) Get() {
 	c.Data["MarkdownContent"] = body
 }
 
-func getFile(path string) ([]byte, error) {
-	path = "./" + path
+func getArticleFile(path string) ([]byte, error) {
+	path = "." + path
 	//beego.Info("=====", path)
 	f, err := os.Open(path)
 	if err != nil {
@@ -43,13 +43,13 @@ func getFile(path string) ([]byte, error) {
 
 func Md2html(raw []byte) string {
 	htmlFlags := 0
-	htmlFlags |= blackfriday.HTML_USE_XHTML
+	//htmlFlags |= blackfriday.HTML_USE_XHTML
 	htmlFlags |= blackfriday.HTML_USE_SMARTYPANTS
 	htmlFlags |= blackfriday.HTML_SMARTYPANTS_FRACTIONS
 	htmlFlags |= blackfriday.HTML_SMARTYPANTS_LATEX_DASHES
 	htmlFlags |= blackfriday.HTML_GITHUB_BLOCKCODE
 	htmlFlags |= blackfriday.HTML_OMIT_CONTENTS
-	htmlFlags |= blackfriday.HTML_COMPLETE_PAGE
+	//htmlFlags |= blackfriday.HTML_COMPLETE_PAGE
 	htmlFlags |= blackfriday.HTML_SKIP_SCRIPT
 	renderer := blackfriday.HtmlRenderer(htmlFlags, "", "")
 

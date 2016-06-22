@@ -1,0 +1,44 @@
+{{ template "admin/base/AdminBase.html" .}}
+{{define "meta"}}
+{{end}}
+{{define "head"}}
+<link href="/static/markdown/wmd-buttons.css" type="text/css" media="all" rel="stylesheet" />
+<link href="/static/admin/css/editor.css" type="text/css" rel="stylesheet" media="all"/>
+
+<script type="text/javascript" src="/static/markdown/Markdown.Converter.js"></script>
+<script type="text/javascript" src="/static/markdown/Markdown.Sanitizer.js"></script>
+<script type="text/javascript" src="/static/markdown/Markdown.Editor.js"></script>
+<script type="text/javascript" src="/static/markdown/jquery.markdown.js"></script>
+<script type="text/javascript" src="/static/admin/js/editor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $( "#markdown" ).markdown({
+            'previewClass' : 'la-markdown-preview'
+        });
+    });
+</script>
+{{end}}
+{{define "body"}}
+<div class="content-body">
+    <div class="article-title">
+        <label class="col-md-2">文章标题</label>
+    <input id="la-article-title" class="col-md-10">
+    </div>
+    <div class="article-type">
+        <label class="col-md-2">文章分类</label>
+        <select id="la-article-type">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+    </div>
+    <div class="article-content">
+    <div id="markdown">
+        <textarea class="markdown-editor" id="unique-id-required"></textarea>
+    </div>
+        <div class="la-markdown-preview"></div>
+    </div>
+    <div class="btn-group">
+        <a class="btn btn_5 btn-lg btn-primary submit">Submit</a>
+    </div>
+</div>
+{{end}}

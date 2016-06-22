@@ -1,0 +1,17 @@
+
+{{template "base/base.html" .}}
+{{define "meta"}}
+{{end}}
+{{define "head"}}
+<link href="/static/css/article.css" rel="stylesheet" type="text/css">
+<script src="/static/js/article.js" language="JavaScript"></script>
+{{end}}
+{{define "body"}}
+{{.MarkdownContent |str2html}}
+<div class="article-share" id="chepop">
+    <div class="article-share-item"><img src="/static/img/qqzone.png"></div>
+    <a class="jiathis_button_weixin"><div class="article-share-item"><img src="/static/img/pengyouquan.png"></div></a>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
+</div>
+
+{{end}}

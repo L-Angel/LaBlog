@@ -5,5 +5,5 @@ type RegisterController struct {
 }
 
 func (this *RegisterController) Get(){
-	this.TplName="Register.html"
+	this.TplName="admin/Register.html"
 }

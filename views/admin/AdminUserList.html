@@ -1,0 +1,58 @@
+{{ template "admin/base/AdminBase.html" .}}
+{{define "meta"}}
+{{end}}
+{{define "head"}}
+<link href="/static/admin/css/adminuserlist.css" rel="stylesheet">
+<script src="/static/admin/js/adminuserlist.js" language="JavaScript"></script>
+{{end}}
+{{define "body"}}
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>RegTime</th>
+        <th>Role</th>
+        <th>Operate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Rick</td>
+        <td>2016-01-01 00:00:00</td>
+        <td>Administrator</td>
+        <td>
+            <div class="row-operate">
+                <a class="row-operate-del" href="javascript:void(0);">删除</a>
+                <a class="row-operate-mod" href="javascript:void(0);">修改</a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>L-Angel</td>
+        <td>2016-01-01 00:00:00</td>
+        <td>Administrator</td>
+        <td>
+            <div class="row-operate">
+                <a class="row-operate-del" href="javascript:void(0);">删除</a>
+                <a class="row-operate-mod" href="javascript:void(0);">修改</a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>Chrisky</td>
+        <td>2016-01-01 00:00:00</td>
+        <td>Administrator</td>
+        <td>
+            <div class="row-operate">
+                <a class="row-operate-del" href="javascript:void(0);">删除</a>
+                <a class="row-operate-mod" href="javascript:void(0);">修改</a>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+{{end}}

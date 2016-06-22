@@ -3,7 +3,7 @@
  */
 
 
-$(function () {
+$(document).ready(function () {
     var $clientWidth = $(window).width();
     if ($clientWidth < 700) {
 
@@ -26,6 +26,16 @@ $(function () {
         };
     }
 
+    $.postJSON = function(url, args, callback) {
+        var xsrf, xsrflist;
+        xsrf = $.cookie("_xsrf");
+        xsrflist = xsrf.split("|");
+        args._xsrf = base64_decode(xsrflist[0]);
+        $.ajax({url: url, data: $.param(args), dataType: "text", type: "POST",
+            success: function(response) {
+                callback(eval("(" + response + ")"));
+            }});
+    };
 
 
 });

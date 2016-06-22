@@ -5,6 +5,8 @@ type AboutController struct {
 }
 
 func (this *AboutController) Get(){
-	this.TplName="About.html"
+	this.Ctx.Redirect(302,"/resume")
+	this.EnableRender = false
+	//this.TplName="About.html"
 }
 

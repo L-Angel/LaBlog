@@ -1,0 +1,72 @@
+.title{
+    font-size: 1.2rem;
+    border-bottom: 1px solid #989898;
+    padding-bottom: 10px;
+    margin-top:30px;
+    margin-bottom: 20px;
+}
+.community-item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left:10px;
+    display: inline;
+    background: #84c7c1;
+    border-radius: 5px;
+    box-shadow: #dff0d8;
+}
+.community-item>a{
+    text-decoration: none;
+}
+
+.community-item:hover{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left:10px;
+    display: inline;
+    background: #19B1E0;
+    border-radius: 5px;
+    box-shadow: #dff0d8;
+    -webkit-box-shadow: #dff0d8;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.knowledgebase-item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left:10px;
+    display: inline;
+}
+.knowledgebase-item:hover{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left:10px;
+    font-size: 1.1rem;
+}
+.friendlinks-item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left:10px;
+    display: inline;
+    background: #A4E7A5;
+    border-radius: 5px;
+}
+
+.friendlinks-item>a{
+    text-decoration:none;
+}
+.friendlinks-item:hover{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left:10px;
+    display: inline;
+    font-size: 1.1rem;
+    background:#4CAF50;
+}
+

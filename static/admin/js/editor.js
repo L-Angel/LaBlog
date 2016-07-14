@@ -3,15 +3,19 @@
  */
 $(document).ready(function () {
   $(".submit").click(function () {
-      var $articletile=$(".la-article-title").val();
-      var $categorytId=$(".a-article-type").val();
+      var $articletitle=$(".la-article-title").val();
+      var $categorytId=$(".la-article-type").val();
       var $articlecontent=$(".markdown-editor").val();
+
+      var $summary=(String)($(".la-markdown-preview").html()).replace(" ","").replace("\\S|\r\n","").substr(0,200);
+      //alert($summary);
       var $author="";
-      alert($articlecontent)
       $.postJSON("/admin/editor",{
-          articleTitle:$articletile,
+          articleTitle:$articletitle,
           articleContent:$articlecontent,
-          author:$author
+          categoryId:$categorytId,
+          author:$author,
+          summary:$summary
       },function (data) {
           if(data.result=="true") {
               alert("Article add successed!");

@@ -4,74 +4,16 @@
 {{define "head"}}
 {{end}}
 {{define "body"}}
+{{range .Blogs}}
+{{if .IfRelease}}
 <article>
     <div>
-    <h1>携程app引领机票预订进入读秒时代</h1>
-        <div class="article-time"> 2016-05-27 13:32:00　
+    <h1>{{.BlogTitle}}</h1>
+        <div class="article-time"> {{date .ReleaseTime "Y-m-d H:i:s"}}</div>
     </div>
-    </div>
-    <p>中国经济网北京5月27日讯 近期，国内在线旅游巨头携程网在服务环节做出了一项小调整，在全国范围内统一使用第三方物流为用户寄送机票单证，取代原有的自有配送团队。
-    </p>
-    <a class="article-more" href="/blogs/20160601001.md">More...</a>
+    <p>{{html2str .Summary}}</p>
+    <a class="article-more" href="{{.FilePath}}">More...</a>
 </article>
-<article>
-    <div>
-        <h1>携程app引领机票预订进入读秒时代</h1>
-        <div class="article-time"> 2016-05-27 13:32:00　
-        </div>
-    </div>
-    <p>中国经济网北京5月27日讯 近期，国内在线旅游巨头携程网在服务环节做出了一项小调整，在全国范围内统一使用第三方物流为用户寄送机票单证，取代原有的自有配送团队。
-    </p>
-    <a class="article-more" href="/blogs/20160601001.md">More...</a>
-</article>
-<article>
-    <div>
-        <h1>携程app引领机票预订进入读秒时代</h1>
-        <div class="article-time"> 2016-05-27 13:32:00　
-        </div>
-    </div>
-    <p>中国经济网北京5月27日讯 近期，国内在线旅游巨头携程网在服务环节做出了一项小调整，在全国范围内统一使用第三方物流为用户寄送机票单证，取代原有的自有配送团队。
-    </p>
-    <a class="article-more" href="/blogs/20160601001.md">More...</a>
-</article>
-<article>
-    <div>
-        <h1>携程app引领机票预订进入读秒时代</h1>
-        <div class="article-time"> 2016-05-27 13:32:00　
-        </div>
-    </div>
-    <p>中国经济网北京5月27日讯 近期，国内在线旅游巨头携程网在服务环节做出了一项小调整，在全国范围内统一使用第三方物流为用户寄送机票单证，取代原有的自有配送团队。
-    </p>
-    <a class="article-more" href="/blogs/20160601001.md">More...</a>
-</article>
-<article>
-    <div>
-        <h1>携程app引领机票预订进入读秒时代</h1>
-        <div class="article-time"> 2016-05-27 13:32:00　
-        </div>
-    </div>
-    <p>中国经济网北京5月27日讯 近期，国内在线旅游巨头携程网在服务环节做出了一项小调整，在全国范围内统一使用第三方物流为用户寄送机票单证，取代原有的自有配送团队。
-    </p>
-    <a class="article-more" href="/blogs/20160601001.md">More...</a>
-</article>
-<article>
-    <div>
-        <h1>携程app引领机票预订进入读秒时代</h1>
-        <div class="article-time"> 2016-05-27 13:32:00　
-        </div>
-    </div>
-    <p>中国经济网北京5月27日讯 近期，国内在线旅游巨头携程网在服务环节做出了一项小调整，在全国范围内统一使用第三方物流为用户寄送机票单证，取代原有的自有配送团队。
-    </p>
-    <a class="article-more" href="/blogs/20160601001.md">More...</a>
-</article>
-<article>
-    <div>
-        <h1>携程app引领机票预订进入读秒时代</h1>
-        <div class="article-time"> 2016-05-27 13:32:00　
-        </div>
-    </div>
-    <p>中国经济网北京5月27日讯 近期，国内在线旅游巨头携程网在服务环节做出了一项小调整，在全国范围内统一使用第三方物流为用户寄送机票单证，取代原有的自有配送团队。
-    </p>
-    <a class="article-more" href="/blogs/20160601001.md">More...</a>
-</article>
+{{end}}
+{{end}}
 {{end}}

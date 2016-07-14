@@ -17,11 +17,12 @@
     </tr>
     </thead>
     <tbody>
+    {{range .Users}}
     <tr>
-        <th scope="row">1</th>
-        <td>Rick</td>
-        <td>2016-01-01 00:00:00</td>
-        <td>Administrator</td>
+        <th scope="row">{{.Id}}</th>
+        <td>{{.UserName}}</td>
+        <td>{{date .RegTime "Y-m-d H:i:s"}}</td>
+        <td>{{if compare .Authority 0}}Administrator{{else if compare .Authority 1}}General{{end}}</td>
         <td>
             <div class="row-operate">
                 <a class="row-operate-del" href="javascript:void(0);">删除</a>
@@ -29,30 +30,7 @@
             </div>
         </td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>L-Angel</td>
-        <td>2016-01-01 00:00:00</td>
-        <td>Administrator</td>
-        <td>
-            <div class="row-operate">
-                <a class="row-operate-del" href="javascript:void(0);">删除</a>
-                <a class="row-operate-mod" href="javascript:void(0);">修改</a>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Chrisky</td>
-        <td>2016-01-01 00:00:00</td>
-        <td>Administrator</td>
-        <td>
-            <div class="row-operate">
-                <a class="row-operate-del" href="javascript:void(0);">删除</a>
-                <a class="row-operate-mod" href="javascript:void(0);">修改</a>
-            </div>
-        </td>
-    </tr>
+    {{end}}
     </tbody>
 </table>
 {{end}}

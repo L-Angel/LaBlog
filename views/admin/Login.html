@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Login</title>
+<title>L-Angel Blog System Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="_xsrf" content="{{.xsrf_token}}" />
@@ -32,10 +32,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   -->
   <h2 class="form-heading">login</h2>
   <div class="app-cam">
-	  <form>
-		<input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
-		<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-		<div class="submit"><input type="submit" onclick="myFunction()" value="Login"></div>
+      <div> asdasd</div>
+	  <form action="/admin/login" method="post">
+		<input name="username" type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
+		<input name="password" type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+<div class="verify">
+    {{create_captcha}}
+    <input type="text" name="captcha" class="captcha-input" placeholder="请输入验证码"  autocomplete="off">
+</div>
+
+
+          <div class="submit"><input type="submit" onclick="myFunction()" value="Login"></div>
 
           <div class="login-social-link">
           <a href="" class="facebook">

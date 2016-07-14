@@ -19,51 +19,29 @@
     </tr>
     </thead>
     <tbody>
+    {{range .Blogs}}
     <tr>
-        <th scope="row">1</th>
-        <td>博客开通测试</td>
-        <td>Rick</td>
-        <td>2016-01-01 00:00:00</td>
-        <td>2016-01-01 00:00:00</td>
-        <td>已发布</td>
+        <th scope="row">{{ .Id }}</th>
+        <td>{{ .BlogTitle }}</td>
+        <td>{{ .Author}}</td>
+        <td>{{date .CreateTime "Y-m-d H:i:s"}}</td>
+        <td>{{date .ReleaseTime "Y-m-d H:i:s"}}</td>
+        <td>{{if compare .IfRelease 1}}
+            已发布
+        {{else}}
+            未发布
+            {{end}}
+        </td>
         <td>
             <div class="row-operate">
-                <a class="row-operate-rel" href="javascript:void(0);">发布</a>
+                <a class="row-operate-rel" href="javascript:void(0);">{{if compare .IfRelease 0}}发布{{else}}撤销发布{{end}}</a>
                 <a class="row-operate-del" href="javascript:void(0);">删除</a>
-                <a class="row-operate-mod" href="javascript:void(0);">修改</a>
+                <a class="row-operate-mod" href="/admin/modify?aid={{.Id}}">修改</a>
             </div>
         </td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>博客开通测试3</td>
-        <td>Rick</td>
-        <td>2016-01-01 00:00:00</td>
-        <td>2016-01-01 00:00:00</td>
-        <td>已发布</td>
-        <td>
-            <div class="row-operate">
-                <a class="row-operate-rel" href="javascript:void(0);">发布</a>
-                <a class="row-operate-del" href="javascript:void(0);">删除</a>
-                <a class="row-operate-mod" href="javascript:void(0);">修改</a>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>博客开通测试3</td>
-        <td>Rick</td>
-        <td>2016-01-01 00:00:00</td>
-        <td>2016-01-01 00:00:00</td>
-        <td>已发布</td>
-        <td>
-            <div class="row-operate">
-                <a class="row-operate-rel" href="javascript:void(0);">发布</a>
-                <a class="row-operate-del" href="javascript:void(0);">删除</a>
-                <a class="row-operate-mod" href="javascript:void(0);">修改</a>
-            </div>
-        </td>
-    </tr>
+    {{end}}
+
     </tbody>
 </table>
 {{end}}

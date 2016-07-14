@@ -6,5 +6,6 @@ type CategoryController struct {
 }
 
 func (this *CategoryController) Get(){
+
 	this.TplName="Category.html"
 }

@@ -15,12 +15,14 @@ func init() {
 	beego.Router("/about",&controllers.AboutController{})
 	beego.Router("/resume",&controllers.ResumeController{})
 
-
+        //beego.InsertFilter("/admin/*",beego.BeforeRouter,controllers.FilterUser)
 	beego.Router("/admin/login",&controllers.LoginController{})
 	beego.Router("/admin/register",&controllers.RegisterController{})
 	beego.Router("/admin/index",&controllers.AdminIndexController{})
 	beego.Router("/admin/editor",&controllers.MarkdownEditorController{})
-	beego.Router("/admin/articlecategory",&controllers.AdminArticleCategoryController{})
+	beego.Router("/admin/modify",&controllers.AdminModifyArticleController{})
+	//beego.Router("/admin/articlecategory",&controllers.AdminArticleCategoryController{})
+	beego.Router("/admin/articlelist/:aid([0-9]+)",&controllers.AdminArticleListController{})
 	beego.Router("/admin/articlelist",&controllers.AdminArticleListController{})
 	beego.Router("/admin/userlist",&controllers.AdminUserListController{})
 	beego.Router("/admin/adduser",&controllers.AdminAddUserController{})

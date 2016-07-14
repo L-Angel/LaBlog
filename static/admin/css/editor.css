@@ -14,6 +14,7 @@
     line-height: 35px;
 }
 .article-title input{
+    width:60%;
     border-radius: 5px;
     border: 1px solid gainsboro;
     height: 35px;
@@ -61,4 +62,24 @@ div>#la-markdown-preview1{
     width: 100%;
     padding-left: 48%;
     padding-right: 48%;
+}
+.hidden-content{
+    display: none;
+}
+#container{
+    width: 100%;
+    height: 100%;
+    top:8%;
+    background: #22BAA0;
+    filter:alpha(opacity=50);
+    opacity: 0.5;
+    position: absolute;
+}
+.file-upload-form{
+    width:30%;
+    height:40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:10%;
+    background: white;
 }

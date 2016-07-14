@@ -3,13 +3,25 @@
 {{end}}
 {{define "head"}}
 <link href="/static/markdown/wmd-buttons.css" type="text/css" media="all" rel="stylesheet" />
-<link href="/static/admin/css/editor.css" type="text/css" rel="stylesheet" media="all"/>
 
 <script type="text/javascript" src="/static/markdown/Markdown.Converter.js"></script>
 <script type="text/javascript" src="/static/markdown/Markdown.Sanitizer.js"></script>
 <script type="text/javascript" src="/static/markdown/Markdown.Editor.js"></script>
 <script type="text/javascript" src="/static/markdown/jquery.markdown.js"></script>
+<script type="text/javascript" src="/static/js/common/plupload.full.min.js"></script>
+<script type="text/javascript" src="/static/js/common/qiniu.js"></script>
+<script type="text/javascript" src="/static/admin/js/qiniu-upload.js"></script>
+<!--
+<script type="text/javascript" src="/static/js/common/fileprogress.js"></script>
+-->
+
+{{if .modify}}
+<link href="/static/admin/css/modify.css" type="text/css" rel="stylesheet" media="all"/>
+<script type="text/javascript" src="/static/admin/js/modify.js" language="JavaScript"></script>
+{{else}}
+<link href="/static/admin/css/editor.css" type="text/css" rel="stylesheet" media="all"/>
 <script type="text/javascript" src="/static/admin/js/editor.js"></script>
+{{end}}
 <script type="text/javascript">
     $(document).ready(function() {
         $( "#markdown" ).markdown({
@@ -20,20 +32,32 @@
 {{end}}
 {{define "body"}}
 <div class="content-body">
+    <div class="hidden-content">
+        <div class="hidden-article-path">
+         {{.Blog.FilePath}}
+        </div>
+        <div class="hidden-article-uniqid">
+            {{ .Blog.BlogUniqId}}
+        </div>
+        <div class="hidden-article-id">
+            {{ .Blog.Id}}
+        </div>
+        </div>
     <div class="article-title">
         <label class="col-md-2">文章标题</label>
-    <input id="la-article-title" class="col-md-10">
+    <input class="la-article-title" class="col-md-10" value="{{ .Blog.BlogTitle}}">
     </div>
     <div class="article-type">
         <label class="col-md-2">文章分类</label>
-        <select id="la-article-type">
-            <option value="1">1</option>
-            <option value="2">2</option>
+        <select class="la-article-type">
+            {{ range .categorys}}
+            <option value="{{.Id}}" {{ if compare  .Id $.Blog.CategoryCategoryId.Id}} selected="selected"{{end}}>{{.CategoryName}}</option>
+            {{end}}
         </select>
     </div>
     <div class="article-content">
     <div id="markdown">
-        <textarea class="markdown-editor" id="unique-id-required"></textarea>
+        <textarea class="markdown-editor" id="unique-id-required">{{ .content}}</textarea>
     </div>
         <div class="la-markdown-preview"></div>
     </div>
@@ -41,4 +65,21 @@
         <a class="btn btn_5 btn-lg btn-primary submit">Submit</a>
     </div>
 </div>
+<!--
+<div id="container">
+    <a class="btn btn-default btn-lg " id="pickfiles" style="width:160px" href="#" >
+        <i class="glyphicon glyphicon-plus"></i>
+        <span>选择文件</span>
+    </a>
+
+    <a class="btn btn-default btn-lg " id="up_load" style="width:160px" href="#" >
+        <span>确认上传</span>
+    </a>
+
+    <a class="btn btn-default btn-lg " id="stop_load" style="width:160px" href="#" >
+        <span>暂停上传</span>
+    </a>
+    <div class="file-upload-tips"></div>
+</div>
+-->
 {{end}}
